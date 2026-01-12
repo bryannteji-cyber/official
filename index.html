@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Hotel Management System</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f7f9fb;
+            color: #222;
+        }
+        .navbar {
+            background: #243447;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .navbar h1 {
+            color: #ffd700;
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar li {
+            margin: 0 1em;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+        .navbar a:hover, .navbar a.active {
+            color: #ffd700;
+        }
+        .container {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(36,52,71,0.09);
+        }
+        .section {
+            display: none;
+            animation: fadeIn 0.4s;
+        }
+        .section.active {
+            display: block;
+        }
+        .section img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .section h2 {
+            color: #243447;
+            margin-top: 0;
+        }
+        .schedule-table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 1em;
+        }
+        .schedule-table th, .schedule-table td {
+            border: 1px solid #ececec;
+            padding: 0.75em 1em;
+        }
+        .schedule-table th {
+            background: #fafafa;
+            color: #243447;
+        }
+        .add-content {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f0f6ff;
+            border-radius: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 1.25em 0 0.5em 0;
+            background: #243447;
+            color: #fff;
+            margin-top: 3em;
+            font-size: 1.02em;
+        }
+        @media (max-width: 600px) {
+            .navbar h1 {
+                font-size: 1.25rem;
+            }
+            .navbar ul {
+                flex-direction: column;
+                gap: 0.5em;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>TASO HOTEL</h1>
+        <ul>
+            <li><a href="#" class="active" onclick="showSection('pool')">Pool</a></li>
+            <li><a href="#" onclick="showSection('restaurant')">Restaurant</a></li>
+            <li><a href="#" onclick="showSection('party')">Party Hall</a></li>
+            <li><a href="#" onclick="showSection('spa')">Spa</a></li>
+            <li><a href="#" onclick="showSection('gym')">Gym</a></li>
+            <li><a href="#" onclick="showSection('about')">About</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section id="pool" class="section active">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Hotel Pool">
+            <h2>Infinity Pool</h2>
+            <p>Relax and refresh at our crystal clear infinity pool overlooking the city skyline, with sunbeds and a poolside bar.</p>
+            <table class="schedule-table">
+                <tr><th>Open</th><th>Close</th><th>Special Features</th></tr>
+                <tr><td>06:00</td><td>22:00</td><td>Heated Pool, Pool Bar, Lifeguard on Duty</td></tr>
+            </table>
+        </section>
+        <section id="restaurant" class="section">
+            <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=80" alt="Restaurant">
+            <h2>Skyline Restaurant</h2>
+            <p>Enjoy international and local cuisine in a modern setting with live music every weekend.</p>
+            <table class="schedule-table">
+                <tr><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr>
+                <tr><td>07:00 - 10:30</td><td>12:00 - 15:00</td><td>18:00 - 22:30</td></tr>
+            </table>
+            <div class="add-content">
+                <strong>Menu highlights:</strong> burger, Fried rice, Vegan Options, Wines <br>
+                <strong>Reservation:</strong> Recommended for dinner and other events.<br>
+                <strong>Chef's Special:</strong> Sunday Brunch Buffet.
+            </div>
+        </section>
+        <section id="party" class="section">
+            <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=800&q=80" alt="Party Hall">
+            <h2>Grand Party Hall</h2>
+            <p>Make your events memorable! Our spacious party hall accommodates up to 300 guests with custom décor and catering options.</p>
+            <table class="schedule-table">
+                <tr><th>Available hours</th><th>Capacity</th><th>Booking</th></tr>
+                <tr><td>09:00 - 23:00</td><td>Up to 300 people</td><td>Pre-booking required</td></tr>
+            </table>
+            <div class="add-content">
+                <strong>Facilities:</strong> DJ Booth, Stage Lighting, Private Bar, Dedicated Event Manager.<br>
+                <strong>Perfect for:</strong> Weddings, Conferences, Birthday Parties.
+            </div>
+        </section>
+        <section id="spa" class="section">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Spa">
+            <h2>Luxury Spa</h2>
+            <p>Indulge in relaxing massages and beauty treatments in a serene atmosphere.</p>
+            <table class="schedule-table">
+                <tr><th>Open</th><th>Close</th><th>Treatments</th></tr>
+                <tr><td>08:00</td><td>21:00</td><td>Swedish, Thai, Facials, Aromatherapy</td></tr>
+            </table>
+        </section>
+        <section id="gym" class="section">
+            <img src="https://images.unsplash.com/photo-1508182314992-c65637e43c0e?auto=format&fit=crop&w=800&q=80" alt="Gym">
+            <h2>Modern Fitness Center</h2>
+            <p>Stay fit during your stay with our state-of-the-art equipment, trainers, and fitness classes.</p>
+            <table class="schedule-table">
+                <tr><th>Open</th><th>Close</th><th>Classes</th></tr>
+                <tr><td>05:30</td><td>23:00</td><td>Yoga, HIIT, Zumba (Daily)</td></tr>
+            </table>
+        </section>
+        <section id="about" class="section">
+            <h2>About TASO Hotel</h2>
+            <p>Located in the heart of the city, TASO Hotel offers a perfect blend of luxury, comfort, and modern amenities. Whether you are here for leisure or business, our exceptional services and elegant facilities are at your disposal.</p>
+            <ul>
+                <li>Luxurious Suites & Rooms</li>
+                <li>Concierge 24/7</li>
+                <li>Airport Shuttle</li>
+                <li>Free High-Speed Wi-Fi</li>
+                <li>Kids Play Area</li>
+                <li>Parking Facility</li>
+            </ul>
+        </section>
+    </div>
+    <div class="footer">
+	<img src= "C:\Users\bryan\OneDrive\Desktop\cristyyyy\1766503193465.jpg" alt="logo">
+        &copy; 2024 TASO  Hotel | Experience Luxury, Comfort & Style
+    </div>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            // Update navbar active link
+            document.querySelectorAll('.navbar a').forEach(a => a.classList.remove('active'));
+            let navLinks = document.querySelectorAll('.navbar a');
+            navLinks.forEach(a => {
+                if (a.getAttribute('onclick') && a.getAttribute('onclick').includes(sectionId))
+                    a.classList.add('active');
+            });
+        }
+    </script>
+</body>
+</html>
